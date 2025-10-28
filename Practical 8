@@ -1,0 +1,17 @@
+# Create a vector of data 
+data <- c(1120, 1080, 1115, 1090, 1150, 1130, 1075, 1105,
+          1125, 1110, 1095, 1160, 1145, 1085, 1120, 1115)
+
+# Hypothesized median
+median_hyp <- 1100
+
+# Count how many values are greater and less than the hypothesized median
+positive_signs <- sum(data > median_hyp)
+negative_signs <- sum(data < median_hyp)
+
+# Perform the Sign Test using binomial distribution
+binom_test_result <- binom.test(positive_signs, positive_signs + negative_signs, 
+                                p = 0.5, alternative = "greater")
+
+# View the results
+print(binom_test_result)
